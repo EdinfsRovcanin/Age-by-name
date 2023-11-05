@@ -1,0 +1,128 @@
+.container {
+    border: 1px solid bisque;
+    border-radius: 20px;
+    max-width: 700px;
+    height: 800px;
+    background-color: bisque;
+    margin: auto;
+}
+.hole-side {
+    margin-top: 10px;
+}
+
+.banner {
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    
+}
+p > h4 {
+    text-align: center;
+}
+.banner >p {
+    margin-bottom: 0px;
+    margin-top: 0px;
+    
+}
+.content {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.input-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+
+.flag-image {
+    width: 25px;
+    height: 16px;
+}
+
+.meny {
+border-bottom: 1px solid;
+border-top: 1px solid;
+
+height: 50px;
+display: flex;
+justify-content: center;
+align-items: center; 
+background-color: white;
+}
+.meny >button {
+    margin-left: 10px;
+    background-color: transparent;
+    border: none;
+}
+#text-field {
+    margin-right: 17px;
+}
+#guess-btn {
+margin-left: 5px;
+background-color: lightsteelblue;
+}
+#rest-div {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+#color-border {
+    height: 30px;
+    background-color: blue;
+}
+#resten {
+    width: 300px;
+    height: 250;
+    /* display: flex;
+    justify-content: center; */
+    border-radius: 50px;
+    padding-top: 20px;
+    padding-left: 15px;
+}
+
+#resten >li {
+    
+    margin-bottom: 10px;
+
+}
+#resten > button {
+    background-color: lightsteelblue;  
+    margin: 5px;
+   
+}
+#rest-btn {
+    margin-bottom: 20px;
+    text-align: center;
+}
+#rest-btn > button {
+    margin: 5px;
+    background-color: lightsteelblue;
+}
+#additional-text {
+    text-align: center;
+}
+.result-box {
+    /* background-image: url(../bilder/displayclean.png); */
+    width: 300px;
+    height: 250;
+    display: flex;
+    justify-content: center;
+    border-radius: 50px;
+}
+#second {
+    text-align: center;
+}
+#lista {
+    font-size: large;
+    margin-top: 40px;
+    text-align: center; 
+    width: 240px;
+    padding-left: 5px; 
+}
+#lista > li {
+    margin-bottom: 5px; 
+}
+
