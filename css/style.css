@@ -139,6 +139,6 @@ background-color: lightsteelblue;
 @media (max-width: 600px) {
 .container {
 max-width: 375px;
-height: 600px;
+height: 800px;
 }
 }
