@@ -64,7 +64,7 @@ background-color: white;
 #text-field {
     margin-right: 17px;
 }
-::placeholder {
+input::placeholder {
     color: blue;
 }
 button >a {
