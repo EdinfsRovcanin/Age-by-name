@@ -45,18 +45,27 @@ guessBtn.addEventListener("click", async function () {
       return null;
     }
   }
-
+  let nationalizeData;
+  let genderizeData;
   async function fetchData() {
     const agifyResponse = await fetch("https://api.agify.io?name=" + textField.value);
     const agifyData = await agifyResponse.json();
     console.log(agifyData)
-
+    
+    try {
     const nationalizeResponse = await fetch("https://api.nationalize.io?name=" + textField.value);
-    const nationalizeData = await nationalizeResponse.json();
-
+    nationalizeData = await nationalizeResponse.json();
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+  try {
     const genderizeResponse = await fetch("https://api.genderize.io?name=" + textField.value);
-    const genderizeData = await genderizeResponse.json();
-
+    genderizeData = await genderizeResponse.json();
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
     if (nationalizeData.country && nationalizeData.country.length > 0) {
       resultBox.style.backgroundColor = "white";
       let countryInfo = { countryName: "Data not available", capital: "Data not available", currency: "Data not available", continent: "Data not available", language: "Data not available", flagUrl: null };
@@ -73,7 +82,7 @@ guessBtn.addEventListener("click", async function () {
       
       let listaHTML = `<li>It is <b>${nationalityProbabilityPercent}</b> chance that you are <b>${agifyData.age || "Unknown"} years</b> old and born in <b>${countryInfo.countryName}</b></li>`;
       listaHTML += `<li>There is <b>${agifyData.count || "Unknown"}</b> persons with this name that are born same year in <b>${countryInfo.countryName}</b> </li>`;
-      listaHTML += `<li>I am ${Math.round(genderizeData.probability * 100) || "Unknown"}% sure that you are <b>${genderizeData.gender || "Unknown"}</b>, </li>`;
+      listaHTML += `<li>I am ${Math.round(genderizeData.probability * 100) || "Unknown"}% sure that you are <b>${genderizeData.gender || "Unknown"}</b> </li>`;
 
       document.getElementById("lista").innerHTML = listaHTML;
 
@@ -85,11 +94,11 @@ guessBtn.addEventListener("click", async function () {
         
         document.getElementById("second").innerHTML = secondHome;
         resten.style.backgroundColor = "white";
-        let listaHTML2 = `<h4 style="text-align: center;">Facts about ${countryInfo.countryName}:</h4><li>The capital is ${countryInfo.capital} </li>`;
-        listaHTML2 += `<li>The language is ${countryInfo.language || "Unknown"} </li>`;
+        let listaHTML2 = `<h4 style="text-align: center;">Facts about ${countryInfo.countryName}:</h4><li>The capital is <i>${countryInfo.capital}</i> </li>`;
+        listaHTML2 += `<li>The language is <i>${countryInfo.language || "Unknown"}</i> </li>`;
         listaHTML2 += `<li>The flag looks like this <img src="${countryInfo.flagUrl}" alt="Flag" class="flag-image"> </li>`;
-        listaHTML2 += `<li>The currency is: ${countryInfo.currency || "Unknown"} </li>`;
-        listaHTML2 += `<li>The continent is ${countryInfo.continent || "Unknown"}, </li>`;
+        listaHTML2 += `<li>The currency is: <i>${countryInfo.currency || "Unknown"}</i> </li>`;
+        listaHTML2 += `<li>The continent is <i>${countryInfo.continent || "Unknown"}</i> </li>`;
         
 
         document.getElementById("resten").innerHTML = listaHTML2;
@@ -97,7 +106,7 @@ guessBtn.addEventListener("click", async function () {
     });
     } else {
       document.getElementById("lista").innerHTML = "<li>No information found for the given name.</li>";
-    }
+    } 
   }
 
   fetchData();
