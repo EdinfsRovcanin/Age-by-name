@@ -81,7 +81,7 @@ guessBtn.addEventListener("click", async function () {
       restBtn.innerHTML = button1HTML + button2HTML;
       
       let listaHTML = `<li>It is <b>${nationalityProbabilityPercent}</b> chance that you are <b>${agifyData.age || "Unknown"} years</b> old and born in <b>${countryInfo.countryName}</b></li>`;
-      listaHTML += `<li>There is <b>${agifyData.count || "Unknown"}</b> persons with this name that are born same year in <b>${countryInfo.countryName}</b> </li>`;
+      listaHTML += `<li>There is <b>${agifyData.count || "Unknown"}</b> persons with this name that was born same year</li>`;
       listaHTML += `<li>I am ${Math.round(genderizeData.probability * 100) || "Unknown"}% sure that you are <b>${genderizeData.gender || "Unknown"}</b> </li>`;
 
       document.getElementById("lista").innerHTML = listaHTML;
